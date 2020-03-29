@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require("path");
 const bodyParser = require('body-parser');
 const passport = require('passport');
-
+const  run = require('./train/main');
 
 const app = express();
 
@@ -56,3 +56,4 @@ app.listen(PORT, () => {
 });
 
 
+//run(100, 64, './modelTF');

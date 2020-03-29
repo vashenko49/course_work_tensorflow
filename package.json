@@ -1,0 +1,30 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "/*\r @route GET api/contacts\r @desc Get all users contacts\r @access Private\r  */",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "yarn --cwd ./client run test",
+    "start": "npm run heroku-ser --prefix ./server",
+    "installAll": "yarn install && yarn --cwd ./server install && yarn --cwd ./client install",
+    "start-dev": "concurrently \"yarn --cwd ./server run server\" \"yarn --cwd ./client run start\"",
+    "start-dev2": "concurrently \"yarn --cwd ./server run server\" \"yarn --cwd ./client run start-js\"",
+    "heroku-postbuild": "npm install && npm --prefix ./client install ./client && npm --prefix ./server install ./server && npm run heroku-cli --prefix ./client"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "vashenko49",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "concurrently": "^5.0.0"
+  },
+  "dependencies": {
+    "travis": "^0.1.1"
+  }
+}
