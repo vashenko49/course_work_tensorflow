@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
+    "server-train": "set NODE_TRAIN=test && node server.js",
     "heroku-ser": "node server.js"
   },
   "author": "vashenko49",

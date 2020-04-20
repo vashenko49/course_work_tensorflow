@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require("path");
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const  run = require('./train/main');
+const run = require('./train/main');
 
 const app = express();
 
@@ -51,5 +51,8 @@ app.listen(PORT, () => {
     console.log('Server has been started')
 });
 
+if (process.env.NODE_TRAIN) {
+    run(100, 64, './modelTF');
+}
 
-//run(100, 64, './modelTF');
+
