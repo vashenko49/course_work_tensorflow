@@ -32,12 +32,7 @@ new Promise(async (resolve, reject) => {
     process.exit(1);
 });
 
-
 app.use("/api/user", require('./routes/Users'));
-app.use("/api/groups", require('./routes/Groups'));
-
-app.use(express.static(path.resolve(__dirname, "./client/build")));
-
 
 app.get("/model.json", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./modelTF/model.json"));
@@ -46,8 +41,9 @@ app.get("/weights.bin", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./modelTF/weights.bin"));
 });
 
+app.use(express.static("../client/build"));
 app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./client/build/index.html"));
+    res.sendFile(path.resolve(__dirname, "../", "client/build/index.html"));
 });
 
 const PORT = process.env.PORT || 5000;

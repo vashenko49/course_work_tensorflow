@@ -33,7 +33,7 @@ exports.createUser = async (req, res) => {
             isAdmin:newUser.isAdmin
         };
 
-        jwt.sign({data: payload}, "rock1nbvv", {expiresIn: 36000}, (err, token) => {
+        jwt.sign({data: payload}, "vashenko49", {expiresIn: 36000}, (err, token) => {
             return res.json({
                 success: true,
                 token: "Bearer " + token
@@ -80,7 +80,7 @@ exports.logInUser = async (req, res) => {
                     isAdmin:user.isAdmin
                 };
 
-                jwt.sign({data: payload}, "rock1nbvv", {expiresIn: 36000}, (err, token) => {
+                jwt.sign({data: payload}, "vashenko49", {expiresIn: 36000}, (err, token) => {
                     return res.json({
                         success: true,
                         token: "Bearer " + token
