@@ -1,6 +1,6 @@
-import * as USERS from '../config/Users';
+import * as USERS from '../../config/Users';
 
-const initialState = {
+export const initialState = {
   loading: true,
   openWindowLogIn: false,
   isAuthorization: false,

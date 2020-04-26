@@ -6,7 +6,7 @@ import { RemoveRedEye, VisibilityOff } from '@material-ui/icons';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { bindActionCreators } from 'redux';
-import * as UsersAction from '../../../actions/Users';
+import * as UsersAction from '../../../actions/User/Users';
 import { connect } from 'react-redux';
 
 class SingUp extends Component {

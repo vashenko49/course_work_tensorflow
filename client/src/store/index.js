@@ -4,7 +4,7 @@ import reducers from '../reducers';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import * as Auth from '../actions/Users';
+import * as Auth from '../actions/User/Users';
 
 export function configureStore() {
   let store = createStore(reducers, {}, applyMiddleware(thunk));

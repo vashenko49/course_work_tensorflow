@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as UsersAction from '../../actions/Users';
+import * as UsersAction from '../../actions/User/Users';
 import Dialog from '@material-ui/core/Dialog';
 import { Paper } from '@material-ui/core';
 import Tab from '@material-ui/core/Tab';

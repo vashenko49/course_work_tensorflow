@@ -1,6 +1,6 @@
-import UsersAPI from '../services/Users';
-import * as USERS from '../config/Users';
-import setDefaultOptions from '../utils/setDefaultOptions';
+import UsersAPI from '../../services/Users';
+import * as USERS from '../../config/Users';
+import setDefaultOptions from '../../utils/setDefaultOptions';
 
 export function loginInSystem(userData) {
   return dispatch => {
@@ -8,7 +8,7 @@ export function loginInSystem(userData) {
       type: USERS.LOG_IN_API_REQUEST
     });
 
-    UsersAPI.login(userData)
+    return UsersAPI.login(userData)
       .then(res => {
         const { token } = res;
         dispatch({
@@ -19,7 +19,7 @@ export function loginInSystem(userData) {
         localStorage.setItem('Authorization', token);
         setDefaultOptions(token);
 
-        UsersAPI.getInformationByJWT().then(res => {
+        return UsersAPI.getInformationByJWT().then(res => {
           dispatch({
             type: USERS.LOG_IN_API_GET_TOKEN_SUCCEEDED,
             payload: res

@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 import _ from 'lodash';
 import './LogIn.scss';
 import { bindActionCreators } from 'redux';
-import * as UsersAction from '../../../actions/Users';
+import * as UsersAction from '../../../actions/User/Users';
 import { connect } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 

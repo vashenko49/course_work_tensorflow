@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { bindActionCreators } from 'redux';
-import * as UsersAction from '../../actions/Users';
+import * as UsersAction from '../../actions/User/Users';
 import { connect } from 'react-redux';
 import Auth from '../Auth/Auth';
 import Box from '@material-ui/core/Box';
