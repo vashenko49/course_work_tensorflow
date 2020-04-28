@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccessDenied AccessDenied initial renders properly 1`] = `
+<WithStyles(ForwardRef(Container))>
+  <WithStyles(ForwardRef(Typography))
+    variant="h2"
+  >
+    You do not have enough privileges to access this service.
+  </WithStyles(ForwardRef(Typography))>
+</WithStyles(ForwardRef(Container))>
+`;
