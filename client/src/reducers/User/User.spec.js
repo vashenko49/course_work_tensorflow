@@ -14,17 +14,6 @@ describe('User reducer', () => {
     });
   });
 
-  it('UPDATE_PERSONAL_DATA_API_REQUEST', () => {
-    const action = {
-      type: USER.UPDATE_PERSONAL_DATA_API_REQUEST
-    };
-
-    expect(reducer(initialState, action)).toEqual({
-      ...initialState,
-      loading: false
-    });
-  });
-
   it('LOG_IN_API_SUCCEEDED', () => {
     const preState = {
       ...initialState,

@@ -21,7 +21,6 @@ export default function(state = initialState, action) {
   // eslint-disable-next-line
     switch (type) {
     case USERS.LOG_IN_API_REQUEST:
-    case USERS.UPDATE_PERSONAL_DATA_API_REQUEST:
       return {
         ...state,
         loading: false,

@@ -19,12 +19,16 @@ export function loginInSystem(userData) {
         localStorage.setItem('Authorization', token);
         setDefaultOptions(token);
 
-        return UsersAPI.getInformationByJWT().then(res => {
-          dispatch({
-            type: USERS.LOG_IN_API_GET_TOKEN_SUCCEEDED,
-            payload: res
+        return UsersAPI.getInformationByJWT()
+          .then(res => {
+            dispatch({
+              type: USERS.LOG_IN_API_GET_TOKEN_SUCCEEDED,
+              payload: res
+            });
+          })
+          .catch(er => {
+            throw er;
           });
-        });
       })
       .catch(() => {
         dispatch({
@@ -40,7 +44,7 @@ export function createUser(userData) {
       type: USERS.LOG_IN_API_REQUEST
     });
 
-    UsersAPI.createUser(userData)
+    return UsersAPI.createUser(userData)
       .then(res => {
         const { token } = res;
         dispatch({
@@ -50,12 +54,16 @@ export function createUser(userData) {
 
         localStorage.setItem('Authorization', token);
         setDefaultOptions(token);
-        UsersAPI.getInformationByJWT().then(res => {
-          dispatch({
-            type: USERS.LOG_IN_API_GET_TOKEN_SUCCEEDED,
-            payload: res
+        return UsersAPI.getInformationByJWT()
+          .then(res => {
+            dispatch({
+              type: USERS.LOG_IN_API_GET_TOKEN_SUCCEEDED,
+              payload: res
+            });
+          })
+          .catch(e => {
+            throw e;
           });
-        });
       })
       .catch(() => {
         dispatch({
@@ -68,9 +76,9 @@ export function createUser(userData) {
 export function logInUseOldJWT(JWT) {
   return dispatch => {
     setDefaultOptions(JWT);
-    UsersAPI.getInformationByJWT()
+    return UsersAPI.getInformationByJWT()
       .then(res => {
-        dispatch({
+        return dispatch({
           type: USERS.LOG_IN_API_GET_TOKEN_SUCCEEDED,
           payload: res
         });
@@ -82,35 +90,27 @@ export function logInUseOldJWT(JWT) {
 }
 
 export function openWindowAuth() {
-  return dispatch => {
-    dispatch({
-      type: USERS.OPEN_WINDOW_AUTH
-    });
+  return {
+    type: USERS.OPEN_WINDOW_AUTH
   };
 }
 
 export function closeWindowAuth() {
-  return dispatch => {
-    dispatch({
-      type: USERS.CLOSE_WINDOW_AUTH
-    });
+  return {
+    type: USERS.CLOSE_WINDOW_AUTH
   };
 }
 
 export function resetError() {
-  return dispatch => {
-    dispatch({
-      type: USERS.RESET_ERROR
-    });
+  return {
+    type: USERS.RESET_ERROR
   };
 }
 
 export function signOut() {
-  return dispatch => {
-    localStorage.removeItem('Authorization');
-    dispatch({
-      type: USERS.LOG_OUT
-    });
-    setDefaultOptions();
+  localStorage.removeItem('Authorization');
+  setDefaultOptions();
+  return {
+    type: USERS.LOG_OUT
   };
 }
