@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './NotFound.scss';
 import { Typography } from '@material-ui/core';
 
-class NotFound extends Component {
+export class NotFound extends Component {
   render() {
     return (
       <div className="not-found">

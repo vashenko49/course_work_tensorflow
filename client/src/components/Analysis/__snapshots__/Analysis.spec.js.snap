@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Analysis /> should work 1`] = `
+<WithStyles(ForwardRef(Container))>
+  <WithStyles(ForwardRef(Typography))
+    variant="h3"
+  >
+    Upload your fluorography and get an answer
+  </WithStyles(ForwardRef(Typography))>
+  <ValidatorForm
+    debounceTime={0}
+    onError={[Function]}
+    onSubmit={[Function]}
+  >
+    <div>
+      <Styled(MuiBox)>
+        <input
+          className="upload-avatar"
+          id="image-selector"
+          multiple={true}
+          name="fluorography"
+          onChange={[Function]}
+          type="file"
+        />
+        <img
+          alt=""
+          className="ml-3"
+          id="selected-image"
+          width="250"
+        />
+        <label
+          htmlFor="image-selector"
+        >
+          <WithStyles(ForwardRef(Button))
+            color="primary"
+            component="span"
+            fullWidth={true}
+            variant="contained"
+          >
+            Upload fluorography
+          </WithStyles(ForwardRef(Button))>
+        </label>
+      </Styled(MuiBox)>
+    </div>
+    <Styled(MuiBox)
+      mt={1}
+    >
+      <WithStyles(ForwardRef(Button))
+        color="primary"
+        disabled={true}
+        fullWidth={true}
+        type="submit"
+        variant="contained"
+      >
+        Analysis
+      </WithStyles(ForwardRef(Button))>
+    </Styled(MuiBox)>
+  </ValidatorForm>
+  <WithStyles(ForwardRef(Backdrop))
+    className="preloader-in-front"
+    open={false}
+  >
+    <WithStyles(ForwardRef(CircularProgress))
+      color="inherit"
+    />
+  </WithStyles(ForwardRef(Backdrop))>
+</WithStyles(ForwardRef(Container))>
+`;

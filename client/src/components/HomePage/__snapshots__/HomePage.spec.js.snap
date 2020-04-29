@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> should work 1`] = `
+<WithStyles(ForwardRef(Container))>
+  <WithStyles(ForwardRef(Typography))
+    variant="h3"
+  >
+    Analysis of fluorograms for tuberculosis. Not a commercial version.
+  </WithStyles(ForwardRef(Typography))>
+  <_default
+    to="analysis"
+  >
+    <WithStyles(ForwardRef(Typography))
+      variant="body1"
+    >
+      Analysis your fluorography -&gt;
+    </WithStyles(ForwardRef(Typography))>
+  </_default>
+</WithStyles(ForwardRef(Container))>
+`;

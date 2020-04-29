@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 import './Header.scss';
 import StyledLink from '../styled/StyledLink';
 
-class Header extends Component {
+export class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import StyledLink from '../styled/StyledLink';
-class HomePage extends Component {
+export class HomePage extends Component {
   render() {
     return (
       <Container>

@@ -1,39 +1,34 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import Header from './Header';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
+import { createShallow } from '@material-ui/core/test-utils';
+import { Header } from './Header';
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+describe('<header />', () => {
+  let shallow;
+  const props = {
+    Users: {
+      loading: true,
+      openWindowLogIn: false,
+      isAuthorization: false,
+      jwt: '',
+      error: '',
+      personalInfo: {
+        _id: '',
+        isAdmin: false,
+        login: '',
+        firstName: '',
+        lastName: '',
+        middleName: ''
+      }
+    },
+    openWindowAuth: () => {},
+    signOut: () => {}
+  };
+  beforeAll(() => {
+    shallow = createShallow();
+  });
 
-describe('Header', () => {
-  describe('Header initial', () => {
-    const props = {
-      Users: {
-        loading: true,
-        openWindowLogIn: false,
-        isAuthorization: false,
-        jwt: '',
-        error: '',
-        personalInfo: {
-          _id: '',
-          isAdmin: false,
-          login: '',
-          firstName: '',
-          lastName: '',
-          middleName: ''
-        }
-      },
-      openWindowAuth: () => {},
-      signOut: () => {}
-    };
-
-    let store = mockStore(props);
-
-    const accessDenied = shallow(<Header store={store} />);
-    it('renders properly', () => {
-      expect(accessDenied).toMatchSnapshot();
-    });
+  it('should work', () => {
+    const wrapper = shallow(<Header {...props} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

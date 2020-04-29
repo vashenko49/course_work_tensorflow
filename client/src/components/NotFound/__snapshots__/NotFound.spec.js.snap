@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> should work 1`] = `
+<div
+  className="not-found"
+>
+  <WithStyles(ForwardRef(Typography))
+    variant="h2"
+  >
+    404
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    We can't find the page you are looking for.
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Typography))
+    variant="h6"
+  >
+    Sorry for the inconvenience
+  </WithStyles(ForwardRef(Typography))>
+</div>
+`;

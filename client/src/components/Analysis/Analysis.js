@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-class Analysis extends Component {
+export class Analysis extends Component {
   constructor(props) {
     super(props);
     this.state = {
