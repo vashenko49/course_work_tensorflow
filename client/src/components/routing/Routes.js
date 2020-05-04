@@ -4,6 +4,7 @@ import HomePage from '../HomePage/HomePage';
 import NotFound from '../NotFound/NotFound';
 import PrivateRoute from './PrivateRoute';
 import Analysis from '../Analysis/Analysis';
+import TestNeuron from '../TestNeuron/TestNeuron';
 
 class Routes extends Component {
   render() {
@@ -11,6 +12,7 @@ class Routes extends Component {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <PrivateRoute exact path="/analysis" component={Analysis} />
+        <PrivateRoute exact path="/test" component={TestNeuron} />
         <Route component={NotFound} />
       </Switch>
     );

@@ -42,7 +42,6 @@ export class Analysis extends Component {
       .expandDims();
 
     let predictions = await model.predict(tensor).data();
-
     let top5 = Array.from(predictions)
       .map(function(p, i) {
         return {

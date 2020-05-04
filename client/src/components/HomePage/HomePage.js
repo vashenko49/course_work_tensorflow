@@ -9,8 +9,11 @@ export class HomePage extends Component {
         <Typography variant={'h3'}>
           Analysis of fluorograms for tuberculosis. Not a commercial version.
         </Typography>
-        <StyledLink to={'analysis'}>
+        <StyledLink to={'/analysis'}>
           <Typography variant={'body1'}>Analysis your fluorography -></Typography>
+        </StyledLink>
+        <StyledLink to={'/test'}>
+          <Typography variant={'body1'}>Big test -></Typography>
         </StyledLink>
       </Container>
     );
