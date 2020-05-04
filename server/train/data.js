@@ -5,7 +5,7 @@ const path = require('path');
 const TRAIN_IMAGES_DIR = './data/train';
 const TEST_IMAGES_DIR = './data/test';
 
-function loadImages(dataDir) {
+const loadImages =(dataDir) => {
     const images = [];
     const labels = [];
 
@@ -17,14 +17,8 @@ function loadImages(dataDir) {
 
         let filePath = path.resolve(__dirname, dataDir, files[i]);
 
-        console.log(path.resolve(__dirname, dataDir, files[i]));
-
         let buffer = fs.readFileSync(filePath);
-        let imageTensor = tf.node.decodeImage(buffer)
-            .resizeNearestNeighbor([96,96])
-            .toFloat()
-            .div(tf.scalar(255.0))
-            .expandDims();
+        let imageTensor = tf.node.decodeImage(buffer).resizeNearestNeighbor([96,96]).toFloat().div(tf.scalar(255.0)).expandDims();
         images.push(imageTensor);
 
         let hasTuberculosis = files[i].toLocaleLowerCase().endsWith("_1.png");
@@ -34,7 +28,7 @@ function loadImages(dataDir) {
     return [images, labels];
 }
 
-class TuberculosisDataset {
+class TuberculosisData {
     constructor() {
         this.trainData = [];
         this.testData = [];
@@ -62,4 +56,4 @@ class TuberculosisDataset {
     }
 }
 
-module.exports = new TuberculosisDataset();
+module.exports = new TuberculosisData();

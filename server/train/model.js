@@ -1,7 +1,7 @@
 const tf = require('@tensorflow/tfjs');
 
 const kernel_size = [3, 3];
-const pool_size= [2, 2];
+const pool_size = [2, 2];
 const first_filters = 32;
 const second_filters = 64;
 const third_filters = 128;
