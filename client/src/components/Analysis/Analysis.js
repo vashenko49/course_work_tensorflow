@@ -17,7 +17,7 @@ export class Analysis extends Component {
       isImg: true,
       load: false,
       result: [],
-      TARGET_CLASSES: {
+      RESULT_ANSWER: {
         0: 'Normal',
         1: 'Tuberculosis'
       }
@@ -30,9 +30,9 @@ export class Analysis extends Component {
 
     let model = await tf.loadLayersModel('/model.json');
 
-    const { TARGET_CLASSES } = this.state;
+    const { RESULT_ANSWER } = this.state;
 
-    const image = $('#selected-image').get(0);
+    const image = $('#fluorography').get(0);
 
     const tensor = tf.browser
       .fromPixels(image)
@@ -46,7 +46,7 @@ export class Analysis extends Component {
       .map(function(p, i) {
         return {
           probability: p,
-          className: TARGET_CLASSES[i]
+          className: RESULT_ANSWER[i]
         };
       })
       .sort(function(a, b) {
@@ -64,12 +64,12 @@ export class Analysis extends Component {
     let reader = new FileReader();
     reader.onload = () => {
       let dataURL = reader.result;
-      $('#selected-image').attr('src', dataURL);
+      $('#fluorography').attr('src', dataURL);
       $('#prediction-list').empty();
       this.setState({ isImg: false });
     };
 
-    let file = $('#image-selector').prop('files')[0];
+    let file = $('#fluorography-selector').prop('files')[0];
     reader.readAsDataURL(file);
   };
 
@@ -88,12 +88,12 @@ export class Analysis extends Component {
                 onChange={event => {
                   handleNewPhoto(event);
                 }}
-                id="image-selector"
+                id="fluorography-selector"
                 name="fluorography"
                 type="file"
               />
-              <img id="selected-image" className="ml-3" width="250" alt="" />
-              <label htmlFor="image-selector">
+              <img id="fluorography" className="ml-3" width="250" alt="" />
+              <label htmlFor="fluorography-selector">
                 <Button fullWidth variant="contained" color="primary" component="span">
                   Upload fluorography
                 </Button>

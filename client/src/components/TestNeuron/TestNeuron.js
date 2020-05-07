@@ -18,7 +18,7 @@ class TestNeuron extends Component {
       noSickResult: [],
       sick: [],
       sickResult: [],
-      TARGET_CLASSES: {
+      RESULT_ANSWER: {
         0: 'Normal',
         1: 'Tuberculosis'
       },
@@ -76,7 +76,7 @@ class TestNeuron extends Component {
     this.setState({ load: true });
 
     let model = await tf.loadLayersModel('/model.json');
-    const { TARGET_CLASSES, noSick, sick } = this.state;
+    const { RESULT_ANSWER, noSick, sick } = this.state;
 
     for (let i = 0; i < noSick.length; i++) {
       const tensor = tf.browser
@@ -90,7 +90,7 @@ class TestNeuron extends Component {
         .map(function(p, i) {
           return {
             probability: p,
-            className: TARGET_CLASSES[i]
+            className: RESULT_ANSWER[i]
           };
         })
         .sort(function(a, b) {
@@ -114,7 +114,7 @@ class TestNeuron extends Component {
         .map(function(p, i) {
           return {
             probability: p,
-            className: TARGET_CLASSES[i]
+            className: RESULT_ANSWER[i]
           };
         })
         .sort(function(a, b) {
@@ -129,7 +129,7 @@ class TestNeuron extends Component {
     let noSickResultperson = 0;
     const { noSickResult } = this.state;
     for (let i = 0; i < noSickResult.length; i++) {
-      if (noSickResult[i][0].className === TARGET_CLASSES[0]) {
+      if (noSickResult[i][0].className === RESULT_ANSWER[0]) {
         noSickResultperson++;
       }
     }
@@ -139,7 +139,7 @@ class TestNeuron extends Component {
     let sickResultperson = 0;
     const { sickResult } = this.state;
     for (let i = 0; i < sickResult.length; i++) {
-      if (sickResult[i][0].className === TARGET_CLASSES[1]) {
+      if (sickResult[i][0].className === RESULT_ANSWER[1]) {
         sickResultperson++;
       }
     }
@@ -153,9 +153,7 @@ class TestNeuron extends Component {
 
   render() {
     const { handleNoSick, handleSubmit, handleSick } = this;
-    const { load, sickResult, noSickResult, result } = this.state;
-    console.log(sickResult);
-    console.log(noSickResult);
+    const { load, result } = this.state;
     return (
       <Container>
         <ValidatorForm ref="form" onSubmit={handleSubmit} onError={errors => console.log(errors)}>
